@@ -16,11 +16,13 @@
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     
     body {
       background-color: black;
       color: white;
+      font-family: "Poppins", sans-serif;
     }
     
     nav {
@@ -29,21 +31,21 @@
       align-items: center;
       justify-content: space-between;
       background-color: rgb(22, 126, 69);
-      font-family: "Poppins";
+      padding: 0 20px;
     }
     
     .heading {
       display: flex;
+      align-items: center;
     }
     
     .logo {
       height: 45px;
-      margin: 0 5px;
+      margin-right: 10px;
     }
     
     .brand-name {
       font-size: 2rem;
-      margin: 0 5px;
       font-weight: 600;
     }
     
@@ -54,7 +56,7 @@
     }
     
     nav ul li {
-      margin: 10px 20px;
+      margin: 0 15px;
       list-style: none;
       font-weight: 300;
     }
@@ -62,13 +64,22 @@
     nav ul li a {
       text-decoration: none;
       color: white;
+      transition: color 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+      color: rgb(91, 220, 80);
     }
     
     .home {
-      font-family: "Poppins";
       position: relative;
-      height: 504px;
-      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
     }
     
     .bg {
@@ -84,28 +95,101 @@
     .intro {
       position: relative;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      text-align: center;
-      font-weight: 400;
     }
     
     .line1 {
       font-size: 1.5rem;
     }
+    
     .line2 {
-      font-size: 5rem;
+      font-size: 4rem;
       font-weight: 600;
       color: rgb(91, 220, 80);
     }
     
     .typed-cursor {
-      visibility: hidden; /* or use display: none; */
+      visibility: hidden;
     }
     
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      z-index: 2;
+    }
+    
+    .buttons form {
+      margin: 0 10px;
+    }
+    
+    .buttons button {
+      padding: 10px 20px;
+      background-color: rgb(91, 220, 80);
+      color: black;
+      border: none;
+      font-family: "Poppins";
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .buttons button:hover {
+      background-color: rgb(75, 180, 65);
+      transform: translateY(-2px);
+    }
+
+    .buttons button:active {
+      background-color: rgb(60, 150, 55);
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 768px) {
+      .brand-name {
+        font-size: 1.5rem;
+      }
+      
+      .line2 {
+        font-size: 3rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .buttons form {
+        margin: 10px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      .home {
+        padding: 0 10px;
+      }
+
+      .line2 {
+        font-size: 2rem;
+      }
+
+      .buttons button {
+        padding: 10px 15px;
+      }
+    }
   </style>
 
   <body>
@@ -129,21 +213,30 @@
     <section class="home">
       <div class="bg"></div>
       <div class="intro">
-        <div class="line1"> Begin your carrer with us...</div>
+        <div class="line1"> Begin your career with us...</div>
         <div class="line2">Resume Builder</div>
-        <div class="line3">~ <span id="element"></span> Escort</div>
+        <div class="line3"> For <span id="element"></span> </div>
+      </div>
+      <div class="buttons">
+        <form action="/create" method="GET">
+          <button>CREATE</button>
+        </form>
+        <form action="/saved" method="GET">
+          <button>SAVED</button>
+        </form>
       </div>
     </section>
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
       var typed = new Typed("#element", {
         strings: [
-          "A Developer's",
-          "An AI/ML Aspirant's",
-          "A Data Scientist's",
-          "A Project Manager's",
-          "A Startup Founder's",
-          "An Engineer's",
+          "a Developer",
+          "an AI/ML Aspirant",
+          "a Data Scientist",
+          "a Project Manager",
+          
+          "an Engineer",
         ],
         typeSpeed: 100,
       });

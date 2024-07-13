@@ -13,7 +13,7 @@ const saltRounds = 10;
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "intel@core77", // It's good practice to use environment variables for sensitive data
+  password: "tejas@1234", // It's good practice to use environment variables for sensitive data
   database: "resumebuilder",
   waitForConnections: true,
   connectionLimit: 10,
