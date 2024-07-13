@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resume Builder - Personal Information</title>
+<title>Resume Builder - Technical Skills</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -19,11 +19,6 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         position: relative;
     }
-    h2 {
-        text-align: center;
-        color: #333333;
-        margin-top: 40px;
-    }
     .blue-border {
         content: '';
         position: absolute;
@@ -34,6 +29,11 @@
         background-color: #007bff;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
+    }
+    h2 {
+        text-align: center;
+        color: #333333;
+        margin-top: 40px;
     }
     .form-group {
         margin-bottom: 20px;
@@ -64,34 +64,31 @@
     input[type="button"]:hover {
         background-color: #0056b3;
     }
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
 </style>
 </head>
 <body>
     <div class="container">
         <div class="blue-border"></div>
-        <h2>Personal Information</h2>
+        <h2>Technical Skills</h2>
         <form action="next_page.html" method="post">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <label for="languages">Languages:</label>
+                <input type="text" id="languages" name="languages" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" required>
+                <label for="developer-tools">Developer Tools:</label>
+                <input type="text" id="developer-tools" name="developer-tools" required>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
+                <label for="technologies-frameworks">Technologies/Frameworks:</label>
+                <input type="text" id="technologies-frameworks" name="technologies-frameworks" required>
             </div>
-            <div class="form-group">
-                <label for="linkedin">LinkedIn Profile:</label>
-                <input type="text" id="linkedin" name="linkedin">
-            </div>
-            <div class="form-group">
-                <label for="github">GitHub Profile:</label>
-                <input type="text" id="github" name="github">
-            </div>
-            <div style="text-align: center;">
+            <div class="button-container">
+                <input type="button" value="Previous" onclick="location.href='previous_page.html';">
                 <input type="button" value="Next" onclick="location.href='next_page.html';">
             </div>
         </form>
