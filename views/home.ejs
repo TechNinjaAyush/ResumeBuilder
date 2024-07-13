@@ -1,245 +1,238 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume Builder</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600&display=swap"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600&display=swap"
+        rel="stylesheet"
     />
-  </head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      background-color: black;
-      color: white;
-      font-family: "Poppins", sans-serif;
-    }
-    
-    nav {
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: rgb(22, 126, 69);
-      padding: 0 20px;
-    }
-    
-    .heading {
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo {
-      height: 45px;
-      margin-right: 10px;
-    }
-    
-    .brand-name {
-      font-size: 2rem;
-      font-weight: 600;
-    }
-    
-    nav ul {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    nav ul li {
-      margin: 0 15px;
-      list-style: none;
-      font-weight: 300;
-    }
-    
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      transition: color 0.3s ease;
-    }
-    
-    nav ul li a:hover {
-      color: rgb(91, 220, 80);
-    }
-    
-    .home {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    
-    .bg {
-      background: url("./doodles.png") no-repeat center center/cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-    
-    .intro {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .line1 {
-      font-size: 1.5rem;
-    }
-    
-    .line2 {
-      font-size: 4rem;
-      font-weight: 600;
-      color: rgb(91, 220, 80);
-    }
-    
-    .typed-cursor {
-      visibility: hidden;
-    }
-    
-    .buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      z-index: 2;
-    }
-    
-    .buttons form {
-      margin: 0 10px;
-    }
-    
-    .buttons button {
-      padding: 10px 20px;
-      background-color: rgb(91, 220, 80);
-      color: black;
-      border: none;
-      font-family: "Poppins";
-      font-weight: 800;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .buttons button:hover {
-      background-color: rgb(75, 180, 65);
-      transform: translateY(-2px);
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .buttons button:active {
-      background-color: rgb(60, 150, 55);
-      transform: translateY(1px);
-    }
+        body {
+            background-color: black;
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
 
-    @media (max-width: 768px) {
-      .brand-name {
-        font-size: 1.5rem;
-      }
-      
-      .line2 {
-        font-size: 3rem;
-      }
+        nav {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(22, 126, 69, 0.9);
+            padding: 0 20px;
+        }
 
-      .buttons {
-        flex-direction: column;
-      }
+        .heading {
+            display: flex;
+            align-items: center;
+        }
 
-      .buttons form {
-        margin: 10px 0;
-      }
-    }
+        .logo {
+            height: 45px;
+            margin-right: 10px;
+        }
 
-    @media (max-width: 480px) {
-      nav {
-        flex-direction: column;
-        height: auto;
-      }
+        .brand-name {
+            font-size: 2rem;
+            font-weight: 600;
+        }
 
-      nav ul {
-        flex-direction: column;
-      }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-      nav ul li {
-        margin: 10px 0;
-      }
+        nav ul li {
+            margin: 0 15px;
+            list-style: none;
+            font-weight: 300;
+        }
 
-      .home {
-        padding: 0 10px;
-      }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
 
-      .line2 {
-        font-size: 2rem;
-      }
+        nav ul li a:hover {
+            color: rgb(91, 220, 80);
+        }
 
-      .buttons button {
-        padding: 10px 15px;
-      }
-    }
-  </style>
+        .home {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: url("/images/doodles.png") no-repeat center center;
+            background-size: cover;
+        }
 
-  <body>
-    <header>
-      <nav>
+        .intro {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .line1 {
+            font-size: 1.5rem;
+        }
+
+        .line2 {
+            font-size: 4rem;
+            font-weight: 600;
+            color: rgb(91, 220, 80);
+        }
+
+        .typed-cursor {
+            visibility: hidden;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            z-index: 2;
+        }
+
+        .buttons form {
+            margin: 0 10px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            background-color: rgb(91, 220, 80);
+            color: black;
+            border: none;
+            font-family: "Poppins";
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons button:hover {
+            background-color: rgb(75, 180, 65);
+            transform: translateY(-2px);
+        }
+
+        .buttons button:active {
+            background-color: rgb(60, 150, 55);
+            transform: translateY(1px);
+        }
+
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 1.5rem;
+            }
+
+            .line2 {
+                font-size: 3rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .buttons form {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .home {
+                padding: 0 10px;
+            }
+
+            .line2 {
+                font-size: 2rem;
+            }
+
+            .buttons button {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
         <div class="heading">
-          <img class="logo" src="logo_white.png" alt="Aziro" />
-          <div class="brand-name">---username here---</div>
+            <img class="logo" src="/images/logo_white.png" alt="Aziro" />
+            <div class="brand-name">---username here---</div>
         </div>
         <div class="options">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About us</a></li>
-            <li><a href="/">Paths</a></li>
-            <li><a href="/">Contact us</a></li>
-          </ul>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">About us</a></li>
+                <li><a href="/">Paths</a></li>
+                <li><a href="/">Contact us</a></li>
+            </ul>
         </div>
-      </nav>
-    </header>
+    </nav>
+</header>
 
-    <section class="home">
-      <div class="bg"></div>
-      <div class="intro">
+<section class="home">
+    <div class="intro">
         <div class="line1"> Begin your career with us...</div>
         <div class="line2">Resume Builder</div>
         <div class="line3"> For <span id="element"></span> </div>
-      </div>
-      <div class="buttons">
+    </div>
+    <div class="buttons">
         <form action="/create" method="GET">
-          <button>CREATE</button>
+            <button>CREATE</button>
         </form>
         <form action="/saved" method="GET">
-          <button>SAVED</button>
+            <button>SAVED</button>
         </form>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-      var typed = new Typed("#element", {
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+    var typed = new Typed("#element", {
         strings: [
-          "a Developer",
-          "an AI/ML Aspirant",
-          "a Data Scientist",
-          "a Project Manager",
-          
-          "an Engineer",
+            "a Developer",
+            "an AI/ML Aspirant",
+            "a Data Scientist",
+            "a Project Manager",
+            "an Engineer",
         ],
         typeSpeed: 100,
-      });
-    </script>
-  </body>
+    });
+</script>
+</body>
 </html>
