@@ -41,7 +41,7 @@
         border: 1px solid #cccccc;
         border-radius: 4px;
     }
-    input[type="button"] {
+    input[type="submit"], input[type="button"] {
         background-color: #007bff;
         color: white;
         padding: 12px 20px;
@@ -52,7 +52,7 @@
         transition: background-color 0.3s ease;
         margin-right: 10px;
     }
-    input[type="button"]:hover {
+    input[type="submit"]:hover, input[type="button"]:hover {
         background-color: #0056b3;
     }
 </style>
@@ -60,9 +60,9 @@
 <body>
     <div class="container">
         <h2>Education</h2>
-        <div class="form-section">
-            <h3>School</h3>
-            <form action="next_page.html" method="post">
+        <form action="/forms2" method="post">
+            <div class="form-section">
+                <h3>School</h3>
                 <div class="form-group">
                     <label for="school_name">Name:</label>
                     <input type="text" id="school_name" name="school_name" required>
@@ -79,11 +79,9 @@
                     <label for="school_percentage">Final Percentage:</label>
                     <input type="number" id="school_percentage" name="school_percentage" required>
                 </div>
-            </form>
-        </div>
-        <div class="form-section">
-            <h3>High School</h3>
-            <form action="next_page.html" method="post">
+            </div>
+            <div class="form-section">
+                <h3>High School</h3>
                 <div class="form-group">
                     <label for="highschool_name">Name:</label>
                     <input type="text" id="highschool_name" name="highschool_name" required>
@@ -100,11 +98,9 @@
                     <label for="highschool_percentage">Final Percentage:</label>
                     <input type="number" id="highschool_percentage" name="highschool_percentage" required>
                 </div>
-            </form>
-        </div>
-        <div class="form-section">
-            <h3>College</h3>
-            <form action="next_page.html" method="post">
+            </div>
+            <div class="form-section">
+                <h3>College</h3>
                 <div class="form-group">
                     <label for="college_name">Name:</label>
                     <input type="text" id="college_name" name="college_name" required>
@@ -121,12 +117,13 @@
                     <label for="college_percentage">Final Percentage:</label>
                     <input type="number" id="college_percentage" name="college_percentage" required>
                 </div>
-            </form>
-        </div>
-        <div style="text-align: center;">
-            <input type="button" value="Previous" onclick="location.href='personal_information.html';">
-            <input type="button" value="Next" onclick="location.href='next_page.html';">
-        </div>
+            </div>
+            <div style="text-align: center;">
+                <input type="button" value="Previous" onclick="location.href='/create';">
+                <input type="submit" value="Next">
+            </div>
+        </form>
     </div>
 </body>
 </html>
+
