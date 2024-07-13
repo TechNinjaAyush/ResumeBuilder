@@ -13,7 +13,7 @@ const saltRounds = 10;
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "pict123", // It's good practice to use environment variables for sensitive data
+  password: "intel@core77", // It's good practice to use environment variables for sensitive data
   database: "resumebuilder",
   waitForConnections: true,
   connectionLimit: 10,
@@ -37,10 +37,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // Adding body-parser middle
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("register.ejs");
+  res.render("login.ejs");
 });
 app.get("/login", async (req, res) => {
-  res.render("login.ejs");
+  res.render("login.ejs");  
 });
 
 app.get("/register", async (req, res) => {
@@ -50,7 +50,6 @@ app.get("/register", async (req, res) => {
 // Registration endpoint
 app.post("/register", async (req, res) => {
   const { email,  password } = req.body;
-
   try {
     const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [
       email,
@@ -69,6 +68,7 @@ app.post("/register", async (req, res) => {
         console.error("Problem in registering user", err);
         return res.status(500).send("Internal server error.");
       } else {
+         res.render("home.ejs");
         console.log("User is registered");
       }
     });
@@ -99,7 +99,7 @@ app.post("/login", async (req, res) => {
 
       res.render("home.ejs") ; 
       console.log("Login successful");
-      res.send("Login successful");
+      
     } else {
       // Passwords do not match, login failed
       console.log("Incorrect password");
@@ -107,10 +107,24 @@ app.post("/login", async (req, res) => {
     }
 
   } catch (err) {
-    console.error("Error logging in user:", err.message, err.stack);
     res.status(500).send("Internal server error.");
   }
 });
+
+app.get("/create" , async(req , res)=>{
+  res.render("forms1.ejs") ; 
+}) ; 
+
+
+
+
+
+// app.get("/saved" , async(req , res)=>{
+
+ 
+
+// }) ; 
+
 
 app.listen(PORT, () => {
   console.log(`Server is started at port ${PORT}`);
