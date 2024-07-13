@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder - Projects</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        background-color: #ffffff;
+        padding: 30px;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    .blue-border {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background-color: #007bff;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    h2 {
+        text-align: center;
+        color: #333333;
+        margin-top: 40px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #555555;
+    }
+    input[type="text"], input[type="date"], textarea {
+        width: calc(100% - 16px);
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+    input[type="date"] {
+        color: #999999; /* Lighter color for date input fields */
+    }
+    .add-button {
+        background-color: #28a745;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+    .add-button:hover {
+        background-color: #218838;
+    }
+    input[type="button"].nav-button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+    input[type="button"].nav-button:hover {
+        background-color: #0056b3;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .button-container input[type="button"].nav-button {
+        margin-right: 10px;
+    }
+    .left-aligned-button {
+        text-align: left;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="blue-border"></div>
+        <h2>Projects</h2>
+        <form id="projects-form" action="next_page.html" method="post">
+            <div class="form-group">
+                <label for="project-name-1">Project Name:</label>
+                <input type="text" id="project-name-1" name="project-name-1" required>
+            </div>
+            <div class="form-group">
+                <label for="languages-used-1">Technologies Used:</label>
+                <input type="text" id="languages-used-1" name="languages-used-1" required>
+            </div>
+            <div class="form-group">
+                <label for="project-date-1">Date:</label>
+                <input type="date" id="project-date-1" name="project-date-1" required>
+            </div>
+            <div class="form-group">
+                <label for="project-summary-1">Summary:</label>
+                <textarea id="project-summary-1" name="project-summary-1" rows="4" required></textarea>
+            </div>
+            <div class="left-aligned-button">
+                <input type="button" class="add-button" value="Add Project" onclick="addProjectField()">
+            </div>
+            <div class="button-container">
+                <input type="button" class="nav-button" value="Previous" onclick="location.href='forms3.html';">
+                <input type="button" class="nav-button" value="Next" onclick="location.href='forms5.html';">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let projectCount = 1;
+
+        function addProjectField() {
+            projectCount++;
+            const projectsForm = document.getElementById('projects-form');
+            const newProject = document.createElement('div');
+            newProject.classList.add('form-group');
+            newProject.innerHTML = `
+                <div class="form-group">
+                    <label for="project-name-${projectCount}">Project Name:</label>
+                    <input type="text" id="project-name-${projectCount}" name="project-name-${projectCount}" required>
+                </div>
+                <div class="form-group">
+                    <label for="languages-used-${projectCount}">Technologies Used:</label>
+                    <input type="text" id="languages-used-${projectCount}" name="languages-used-${projectCount}" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-date-${projectCount}">Date:</label>
+                    <input type="date" id="project-date-${projectCount}" name="project-date-${projectCount}" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-summary-${projectCount}">Summary:</label>
+                    <textarea id="project-summary-${projectCount}" name="project-summary-${projectCount}" rows="4" required></textarea>
+                </div>
+            `;
+            projectsForm.insertBefore(newProject, projectsForm.lastElementChild.previousElementSibling);
+        }
+    </script>
+</body>
+</html>

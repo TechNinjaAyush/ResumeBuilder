@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resume Builder - Personal Information</title>
+<title>Resume Builder - Technical Skills</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -17,10 +17,23 @@
         margin: 20px auto;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    .blue-border {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background-color: #007bff;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
     }
     h2 {
         text-align: center;
         color: #333333;
+        margin-top: 40px;
     }
     .form-group {
         margin-bottom: 20px;
@@ -38,7 +51,7 @@
         border: 1px solid #cccccc;
         border-radius: 4px;
     }
-    input[type="submit"] {
+    input[type="button"] {
         background-color: #007bff;
         color: white;
         padding: 12px 20px;
@@ -48,37 +61,35 @@
         font-size: 16px;
         transition: background-color 0.3s ease;
     }
-    input[type="submit"]:hover {
+    input[type="button"]:hover {
         background-color: #0056b3;
+    }
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
     }
 </style>
 </head>
 <body>
     <div class="container">
-        <h2>Personal Information</h2>
-        <form action="/forms2" method="post">
+        <div class="blue-border"></div>
+        <h2>Technical Skills</h2>
+        <form action="next_page.html" method="post">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <label for="languages">Languages:</label>
+                <input type="text" id="languages" name="languages" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" required>
+                <label for="developer-tools">Developer Tools:</label>
+                <input type="text" id="developer-tools" name="developer-tools" required>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
+                <label for="technologies-frameworks">Technologies/Frameworks:</label>
+                <input type="text" id="technologies-frameworks" name="technologies-frameworks" required>
             </div>
-            <div class="form-group">
-                <label for="linkedin">LinkedIn:</label>
-                <input type="text" id="linkedin" name="linkedin">
-            </div>
-            <div class="form-group">
-                <label for="github">GitHub:</label>
-                <input type="text" id="github" name="github">
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit">
+            <div class="button-container">
+                <input type="button" value="Previous" onclick="location.href='forms4.html';">
+                <input type="button" value="Next" onclick="location.href='forms6.html';">
             </div>
         </form>
     </div>
