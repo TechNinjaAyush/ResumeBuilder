@@ -9,12 +9,11 @@ const app = express();
 const PORT = 8080; // Corrected to use the same port variable consistently
 const saltRounds = 10;
 
-
 // Database connection setup
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password:  "intel@core77", // It's good practice to use environment variables for sensitive data
+  password: "intel@core77", // It's good practice to use environment variables for sensitive data
   database: "resumebuilder",
   waitForConnections: true,
   connectionLimit: 10,
@@ -40,20 +39,30 @@ app.use(bodyParser.urlencoded({ extended: true })); // Adding body-parser middle
 app.get("/", (req, res) => {
   res.render("register.ejs");
 });
+app.get("/login", async (req, res) => {
+  res.render("login.ejs");
+});
+
+app.get("/register", async (req, res) => {
+  res.render("register.ejs");
+});
 
 // Registration endpoint
 app.post("/register", async (req, res) => {
-  const { email, password } = req.body;
+  const { email,  password } = req.body;
 
   try {
-    const [rows] = await db.query("SELECT * FROM userinfo WHERE Email = ?", [email]);
+    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [
+      email,
+    ]);
 
     if (rows.length > 0) {
       return res.status(400).send("User already exists.");
     }
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const register_query = "INSERT INTO userinfo (email, password) VALUES (?, ?)";
+    const register_query =
+      "INSERT INTO userinfo (email,  password) VALUES (?, ?)";
 
     db.query(register_query, [email, hashedPassword], (err, results) => {
       if (err) {
@@ -68,15 +77,41 @@ app.post("/register", async (req, res) => {
     res.status(500).send("Internal server error.");
   }
 });
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
 
-app.get("/login" , async(req , res)=>{
+  try {
+    // Fetch user record from database based on email
+    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [email]);
 
-    res.render("login.ejs") ; 
+    if (rows.length === 0) {
+      // User with the provided email does not exist
+      return res.status(404).send("User not found.");
+    }
 
-}) ; 
+    const user = rows[0];
+
+    // Compare entered password with stored hashed password
+    const match = await bcrypt.compare(password, user.password);
+
+    if (match) {
+      // Passwords match, login successful
+
+      res.render("home.ejs") ; 
+      console.log("Login successful");
+      res.send("Login successful");
+    } else {
+      // Passwords do not match, login failed
+      console.log("Incorrect password");
+      res.status(401).send("Incorrect password.");
+    }
+
+  } catch (err) {
+    console.error("Error logging in user:", err.message, err.stack);
+    res.status(500).send("Internal server error.");
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is started at port ${PORT}`);
 });
-
-
