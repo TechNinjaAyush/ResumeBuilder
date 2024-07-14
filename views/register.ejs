@@ -7,19 +7,45 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
   <style>
     body {
-      background: white;
-      background-size: cover;
+      background: rgb(241, 239, 234);
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
+      font-family: 'Poppins', sans-serif;
     }
-    #heading {
-      font-family: Poppins;
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #product-name {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      text-align: center;
+      color: #42c042;
+    }
+    #product-name .line1 {
+      font-size: 1.3rem;
+    }
+    #product-name .line2 {
+      font-size: 4rem;
+      font-weight: 600;
+    }
+    #product-name .line3 {
+      font-family: 'Courier New';
+      font-weight: bold;
+      font-size: 1.3rem;
     }
     #register {
       background: whitesmoke;
@@ -28,6 +54,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       max-width: 400px;
       width: 100%;
+      flex: 1;
     }
     .form-group label {
       font-weight: bold;
@@ -49,26 +76,55 @@
     }
   </style>
 </head>
-<body class="d-flex align-items-center justify-content-center vh-100">
-  <div id="register" class="p-5 rounded-lg w-100" style="max-width: 400px;">
-    <h2 id="heading" class="text-center mb-4">Register</h2>
-    <form action="/register" method="POST">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required class="form-control">
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Register</button>
-      <p class="mt-3 text-center">Already have an account? <a href="/login">Login</a></p>
-    </form>
+<body>
+  <div class="container">
+    <div id="product-name">
+      <div class="line1">Create your First Resume with our</div>
+      <div class="line2">Resume Builder</div>
+      <div class="line3" id="tagline">Craft Your Future, One Page at a Time</div>
+    </div>
+    <div id="register" class="p-5 rounded-lg w-100" style="max-width: 400px;">
+      <h2 id="heading" class="text-center mb-4">Register</h2>
+      <form action="/register" method="POST">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <p class="mt-3 text-center">Already have an account? <a href="/login">Login</a></p>
+      </form>
+    </div>
   </div>
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Typewriter effect script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const text = "Craft Your Future, One Page at a Time";
+      let index = 0;
+      const speed = 100; // Speed of typing in milliseconds
+      const taglineElement = document.getElementById('tagline');
+
+      function typeWriter() {
+        if (index < text.length) {
+          taglineElement.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+      // Start the typewriter effect
+      taglineElement.innerHTML = ''; // Clear the tagline initially
+      typeWriter();
+    });
+  </script>
 </body>
 </html>
