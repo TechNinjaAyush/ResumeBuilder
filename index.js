@@ -2,11 +2,10 @@ import express from "express";
 import ejs from "ejs";
 import mysql from "mysql2/promise"; // Using mysql2 promise-based version
 import bcrypt from "bcrypt";
-
 import bodyParser from "body-parser";
 
 const app = express();
-const PORT = 8080; // Corrected to use the same port variable consistently
+const PORT = 3030; // Corrected to use the same port variable consistently
 const saltRounds = 10;
 
 // Database connection setup
@@ -40,7 +39,7 @@ app.get("/", (req, res) => {
   res.render("login.ejs");
 });
 app.get("/login", async (req, res) => {
-  res.render("login.ejs");  
+  res.render("login.ejs");
 });
 
 app.get("/register", async (req, res) => {
@@ -49,26 +48,23 @@ app.get("/register", async (req, res) => {
 
 // Registration endpoint
 app.post("/register", async (req, res) => {
-  const { email,  password } = req.body;
+  const { username, password } = req.body;
   try {
-    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [
-      email,
-    ]);
+    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [username]);
 
     if (rows.length > 0) {
       return res.status(400).send("User already exists.");
     }
 
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const register_query =
-      "INSERT INTO userinfo (email,  password) VALUES (?, ?)";
+    const register_query = "INSERT INTO userinfo (email, password) VALUES (?, ?)";
 
     db.query(register_query, [email, hashedPassword], (err, results) => {
       if (err) {
         console.error("Problem in registering user", err);
         return res.status(500).send("Internal server error.");
       } else {
-         res.render("home.ejs");
+        res.render("home.ejs");
         console.log("User is registered");
       }
     });
@@ -77,12 +73,13 @@ app.post("/register", async (req, res) => {
     res.status(500).send("Internal server error.");
   }
 });
+
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
     // Fetch user record from database based on email
-    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [email]);
+    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [username]);
 
     if (rows.length === 0) {
       // User with the provided email does not exist
@@ -96,10 +93,8 @@ app.post("/login", async (req, res) => {
 
     if (match) {
       // Passwords match, login successful
-
-      res.render("home.ejs") ; 
+      res.render("home.ejs");
       console.log("Login successful");
-      
     } else {
       // Passwords do not match, login failed
       console.log("Incorrect password");
@@ -111,19 +106,13 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/create" , async(req , res)=>{
-  res.render("forms1.ejs") ; 
-}) ; 
+app.get("/create", async (req, res) => {
+  res.render("Resumeforms1.ejs");
+});
 
 
 
 
-
-// app.get("/saved" , async(req , res)=>{
-
- 
-
-// }) ; 
 
 
 app.listen(PORT, () => {
