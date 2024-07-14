@@ -94,10 +94,10 @@
         
         <div class="form-section">
             <h3>Relevant Coursework</h3>
-            <form id="coursework-form">
+            <form id="coursework-form"    >
                 <div class="form-group">
                     <label for="course-1">Course 1</label>
-                    <input type="text" id="course-1" name="course-1" required>
+                    <input type="text" id="course-1" name="course_1" required>
                 </div>
             </form>
             <button class="add-field-button" onclick="addCourseField()">Add Field</button>
@@ -105,33 +105,32 @@
         
         <div class="form-section">
             <h3>Experience</h3>
-            <form id="experience-form">
+            <form id="experience-form" method="post"   action = "/forms4">
                 <div class="form-group">
                     <label for="company-name-1">Company Name</label>
-                    <input type="text" id="company-name-1" name="company-name-1" required>
+                    <input type="text" id="company-name-1" name="company_name_1" required>
                 </div>
                 <div class="form-group">
                     <label for="role-1">Role</label>
-                    <input type="text" id="role-1" name="role-1" required>
+                    <input type="text" id="role-1" name="role_1" required>
                 </div>
                 <div class="form-group">
                     <label for="start-date-1">Start Date</label>
-                    <input type="date" id="start-date-1" name="start-date-1" required>
+                    <input type="date" id="start-date-1" name="start_date_1" required>
                 </div>
                 <div class="form-group">
                     <label for="end-date-1">End Date</label>
-                    <input type="date" id="end-date-1" name="end-date-1" required>
+                    <input type="date" id="end-date-1" name="end_date_1" required>
                 </div>
                 <div class="form-group">
                     <label for="summary-1">Summary</label>
-                    <textarea id="summary-1" name="summary-1" rows="4" required></textarea>
+                    <textarea id="summary-1" name="summary_1" rows="4" required></textarea>
                 </div>
             </form>
             <button class="add-experience-button" onclick="addExperienceField()">Add Experience</button>
         </div>
         
         <div style="text-align: center;">
-            <input type="button" value="Previous" onclick="location.href='forms2.html';">
             <input type="button" value="Next" onclick="location.href='forms4.html';">
         </div>
     </div>

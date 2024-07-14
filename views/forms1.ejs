@@ -70,11 +70,8 @@
     <div class="container">
         <div class="blue-border"></div>
         <h2>Personal Information</h2>
-<<<<<<< HEAD:views/forms1.ejs
-        <form action="/forms2" method="post">
-=======
-        <form action="next_page.html" method="post">
->>>>>>> 758d1b9a448dfaae9aaeaf3259a805d66e9056b7:views/forms1.html
+
+        <form action="/submit" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -95,15 +92,15 @@
                 <label for="github">GitHub Profile:</label>
                 <input type="text" id="github" name="github">
             </div>
-<<<<<<< HEAD:views/forms1.ejs
             <div class="form-group">
                 <input type="submit" value="Submit">
-=======
-            <div style="text-align: center;">
-                <input type="button" value="Next" onclick="location.href='forms2.html';">
->>>>>>> 758d1b9a448dfaae9aaeaf3259a805d66e9056b7:views/forms1.html
             </div>
+        </form>
+
+        <form action="/forms2" method="get" style="text-align: center;">
+            <input type="submit" value="Next">
         </form>
     </div>
 </body>
 </html>
+

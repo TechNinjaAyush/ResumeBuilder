@@ -52,7 +52,7 @@
         border-radius: 4px;
     }
     input[type="date"] {
-        color: #999999; /* Lighter color for date input fields */
+        color: #999999;
     }
     input[type="button"] {
         padding: 12px 20px;
@@ -63,14 +63,14 @@
         transition: background-color 0.3s ease;
     }
     input[type="button"].blue-button {
-        background-color: #007bff; /* Blue color for Previous and Next buttons */
+        background-color: #007bff;
         color: white;
     }
     input[type="button"].blue-button:hover {
         background-color: #0056b3;
     }
     input[type="button"].add-button {
-        background-color: #28a745; /* Green color for add button */
+        background-color: #28a745;
         color: white;
     }
     input[type="button"].add-button:hover {
@@ -82,7 +82,7 @@
     }
     .left-align {
         text-align: left;
-        margin-bottom: 20px; /* Additional spacing below Add Field button */
+        margin-bottom: 20px;
     }
 </style>
 </head>
@@ -90,7 +90,7 @@
     <div class="container">
         <div class="blue-border"></div>
         <h2>Extracurricular</h2>
-        <form id="extracurricular-form" action="next_page.html" method="post">
+        <form id="extracurricular-form" action="/forms7" method="post">
             <div class="form-group">
                 <label for="title">Organisation:</label>
                 <input type="text" id="title" name="title" required>
@@ -101,11 +101,11 @@
             </div>
             <div class="form-group">
                 <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date" name="start-date" required>
+                <input type="date" id="start-date" name="start_date" required>
             </div>
             <div class="form-group">
                 <label for="end-date">End Date:</label>
-                <input type="date" id="end-date" name="end-date" required>
+                <input type="date" id="end-date" name="end_date" required>
             </div>
             <div class="form-group">
                 <label for="summary">Summary:</label>
@@ -115,8 +115,7 @@
                 <input type="button" class="add-button" value="Add Field" onclick="addField()">
             </div>
             <div class="button-container">
-                <input type="button" class="blue-button" value="Previous" onclick="location.href='forms5.html';">
-                <input type="button" class="blue-button" value="Submit" onclick="location.href='next_page.html';">
+                <input type="submit" class="blue-button" value="Submit">
             </div>
         </form>
     </div>
@@ -128,7 +127,7 @@
             newField.classList.add('form-group');
             newField.innerHTML = `
                 <div class="form-group">
-                    <label for="title">Title:</label>
+                    <label for="title">Organisation:</label>
                     <input type="text" name="title" required>
                 </div>
                 <div class="form-group">
@@ -137,22 +136,20 @@
                 </div>
                 <div class="form-group">
                     <label for="start-date">Start Date:</label>
-                    <input type="date" name="start-date" required>
+                    <input type="date" name="start_date" required>
                 </div>
                 <div class="form-group">
                     <label for="end-date">End Date:</label>
-                    <input type="date" name="end-date" required>
+                    <input type="date" name="end_date" required>
                 </div>
                 <div class="form-group">
                     <label for="summary">Summary:</label>
                     <textarea name="summary" rows="4" required></textarea>
                 </div>
-                <div class="left-align">
-                    <input type="button" class="add-button" value="Add Field" onclick="addField()">
-                </div>
             `;
-            form.insertBefore(newField, form.querySelector('.button-container'));
+            form.insertBefore(newField, form.querySelector('.left-align'));
         }
     </script>
 </body>
 </html>
+

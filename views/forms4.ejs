@@ -97,28 +97,27 @@
     <div class="container">
         <div class="blue-border"></div>
         <h2>Projects</h2>
-        <form id="projects-form" action="next_page.html" method="post">
+        <form id="projects-form" action="/forms5" method="post">
             <div class="form-group">
                 <label for="project-name-1">Project Name:</label>
-                <input type="text" id="project-name-1" name="project-name-1" required>
+                <input type="text" id="project-name-1" name="project_name_1" required>
             </div>
             <div class="form-group">
                 <label for="languages-used-1">Technologies Used:</label>
-                <input type="text" id="languages-used-1" name="languages-used-1" required>
+                <input type="text" id="languages-used-1" name="languages_used_1" required>
             </div>
             <div class="form-group">
                 <label for="project-date-1">Date:</label>
-                <input type="date" id="project-date-1" name="project-date-1" required>
+                <input type="date" id="project-date-1" name="project_date_1" required>
             </div>
             <div class="form-group">
                 <label for="project-summary-1">Summary:</label>
-                <textarea id="project-summary-1" name="project-summary-1" rows="4" required></textarea>
+                <textarea id="project-summary-1" name="project_summary_1" rows="4" required></textarea>
             </div>
             <div class="left-aligned-button">
                 <input type="button" class="add-button" value="Add Project" onclick="addProjectField()">
             </div>
             <div class="button-container">
-                <input type="button" class="nav-button" value="Previous" onclick="location.href='forms3.html';">
                 <input type="button" class="nav-button" value="Next" onclick="location.href='forms5.html';">
             </div>
         </form>

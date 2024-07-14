@@ -54,7 +54,7 @@
         border: 1px solid #cccccc;
         border-radius: 4px;
     }
-    input[type="submit"], input[type="button"] {
+    input[type="submit"], input[type="button"], a.button {
         background-color: #007bff;
         color: white;
         padding: 12px 20px;
@@ -62,10 +62,11 @@
         border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
+        text-decoration: none;
         transition: background-color 0.3s ease;
         margin-right: 10px;
     }
-    input[type="submit"]:hover, input[type="button"]:hover {
+    input[type="submit"]:hover, input[type="button"]:hover, a.button:hover {
         background-color: #0056b3;
     }
 </style>
@@ -74,7 +75,7 @@
     <div class="container">
         <div class="blue-border"></div>
         <h2>Education</h2>
-        <form action="/forms2" method="post">
+        <form action="/forms3" method="post">
             <div class="form-section">
                 <h3>School</h3>
                 <div class="form-group">
@@ -131,20 +132,20 @@
                     <label for="college_percentage">Final Percentage:</label>
                     <input type="number" id="college_percentage" name="college_percentage" required>
                 </div>
-
             </div>
             <div style="text-align: center;">
-                <input type="button" value="Previous" onclick="location.href='/create';">
-                <input type="submit" value="Next">
+                <form action="/forms1" method="get" style="display: inline;">
+                    <input type="submit" value="Previous">
+                </form>
+                <input type="submit" value="Submit">
             </div>
         </form>
-            </form>
-        </div>
-        <div style="text-align: center;">
-            <input type="button" value="Previous" onclick="location.href='forms1.html';">
-            <input type="button" value="Next" onclick="location.href='forms3.html';">
-        </div>
+        <form action="/forms3" method="get" style="text-align: center;">
+            <input type="submit" value="Next">
+        </form>
     </div>
 </body>
 </html>
+
+
 

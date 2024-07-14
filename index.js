@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import bodyParser from "body-parser";
 
 const app = express();
-const PORT = 8080; // Corrected to use the same port variable consistently
+const PORT = 3030; // Corrected to use the same port variable consistently
 const saltRounds = 10;
 
 // Database connection setup
@@ -48,9 +48,9 @@ app.get("/register", async (req, res) => {
 
 // Registration endpoint
 app.post("/register", async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
   try {
-    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [email]);
+    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [username]);
 
     if (rows.length > 0) {
       return res.status(400).send("User already exists.");
@@ -75,11 +75,11 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
     // Fetch user record from database based on email
-    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [email]);
+    const [rows] = await db.query("SELECT * FROM userinfo WHERE email = ?", [username]);
 
     if (rows.length === 0) {
       // User with the provided email does not exist
@@ -107,19 +107,13 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/create", async (req, res) => {
-  res.render("forms1.ejs");
+  res.render("Resumeforms1.ejs");
 });
 
-app.post("/forms2", async (req, res) => {
-  // You can process the form1 data here if needed
-  res.render("forms3.ejs");
-});
 
- 
 
-// app.get("/saved" , async(req , res)=>{
 
-// }) ;
+
 
 app.listen(PORT, () => {
   console.log(`Server is started at port ${PORT}`);
