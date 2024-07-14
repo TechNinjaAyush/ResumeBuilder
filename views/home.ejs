@@ -45,8 +45,8 @@
         }
 
         .brand-name {
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 400;
         }
 
         nav ul {
@@ -80,7 +80,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: url("/images/doodles.png") no-repeat center center;
+            background: url("./views/doodles.png") no-repeat center center;
             background-size: cover;
             filter: brightness(0.8); /* Slightly darken background */
         }
@@ -92,6 +92,7 @@
             border-radius: 10px;
         }
         
+
         .line1 {
             font-size: 1.5rem;
         }
@@ -118,13 +119,13 @@
         }
 
         .buttons button {
-            padding: 10px 20px;
+            padding: 15px 25px;
             background-color: rgb(91, 220, 80);
             color: black;
             border: 1px solid rgba(0, 0, 0, 0.2);
             font-family: "Poppins";
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 1.3rem;
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -133,8 +134,11 @@
 
         .buttons button:hover {
             background-color: rgb(75, 180, 65);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2); /* Increased spread */
+
         }
+
+
 
         .buttons button:active {
             background-color: rgb(60, 150, 55);
@@ -193,6 +197,7 @@
             z-index: 1000;
             left: 0;
             top: 0%;
+            top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
@@ -232,7 +237,6 @@
 <header>
     <nav>
         <div class="heading">
-            <img class="logo" src="/images/logo_white.png" alt="Aziro" />
             <div class="brand-name">---username here---</div>
         </div>
         <div class="options">
@@ -248,16 +252,13 @@
 
 <section class="home">
     <div class="intro">
-        <div class="line1"> Begin your career with us...</div>
+        <div class="line1">Build your first Resume with our</div>
         <div class="line2">Resume Builder</div>
         <div class="line3"> For <span id="element"></span> </div>
     </div>
     <div class="buttons">
         <form action="/create" method="GET">
             <button>CREATE</button>
-        </form>
-        <form action="/saved" method="GET">
-            <button>SAVED</button>
         </form>
     </div>
 </section>
