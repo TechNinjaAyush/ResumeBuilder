@@ -6,34 +6,54 @@
     <title>Resume Builder</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: #eef2f3;
+            color: #333;
         }
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 1.5rem;
             width: 100%;
             text-align: center;
-            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        main {
+            margin-top: 7rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         section {
             margin: 1rem;
-            padding: 1.5rem;
-            border: 1px solid #ccc;
+            padding: 2rem;
+            border: 1px solid #ddd;
             width: 80%;
             max-width: 800px;
-            box-shadow: 2px 2px 12px #aaa;
-            background-color: white;
-            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
         .input-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         label {
             display: block;
@@ -42,11 +62,12 @@
         }
         input, textarea {
             width: calc(100% - 20px);
-            padding: 0.5rem;
+            padding: 0.75rem;
             margin-bottom: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
             font-size: 1rem;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         .button-group {
             display: flex;
@@ -55,38 +76,38 @@
         .submit-button {
             margin: 2rem auto;
             padding: 0.75rem 2rem;
-            background-color: #4CAF50;
-            color: white;
+            background-color:#4caf50;
+            color: #fff;
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: background-color 0.3s ease;
         }
         .submit-button:hover {
-            background-color: #45a049;
+            background-color: #4caf50;
         }
         button[type="button"] {
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.5rem;
             background-color: #007bff;
-            color: white;
+            color: #fff;
             border: none;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: background-color 0.3s ease;
         }
         button[type="button"]:hover {
             background-color: #0056b3;
         }
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             margin-bottom: 1rem;
             color: #333;
         }
         h3 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #444;
+            color: #555;
         }
     </style>
     <script>
@@ -172,108 +193,70 @@
 <body>
 
     <header>
-        <h1>Resume Builder</h1>
+        <h1>Enter Information</h1>
     </header>
 
-    <form action="/submit" method="POST">
-        <section>
-            <h2>Personal Information</h2>
-            <div class="input-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control">
-            </div>
-            <div class="input-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" class="form-control">
-            </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control">
-            </div>
-            <div class="input-group">
-                <label for="linkedin">LinkedIn Profile</label>
-                <input type="url" id="linkedin" name="linkedin" class="form-control">
-            </div>
-            <div class="input-group">
-                <label for="github">GitHub Profile</label>
-                <input type="url" id="github" name="github" class="form-control">
-            </div>
-        </section>
+    <main>
+        <form action="/submit" method="POST">
+            <section>
+                <h2>Personal Information</h2>
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control">
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control">
+                </div>
+                <div class="input-group">
+                    <label for="linkedin">LinkedIn Profile</label>
+                    <input type="url" id="linkedin" name="linkedin" class="form-control">
+                </div>
+                <div class="input-group">
+                    <label for="github">GitHub Profile</label>
+                    <input type="url" id="github" name="github" class="form-control">
+                </div>
+            </section>
 
-        <section>
-            <h2>Education</h2>
-            <div>
-                <h3>School</h3>
-                <div class="input-group">
-                    <label for="school-name">Name</label>
-                    <input type="text" id="school-name" name="school-name" class="form-control">
+            <section>
+                <h2>Education</h2>
+                <div>
+                    <h3>School</h3>
+                    <div class="input-group">
+                        <label for="school-name">Name</label>
+                        <input type="text" id="school-name" name="school-name" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="school-start-year">Start Year</label>
+                        <input type="number" id="school-start-year" name="school-start-year" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="school-end-year">End Year</label>
+                        <input type="number" id="school-end-year" name="school-end-year" class="form-control">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="school-start-year">Start Year</label>
-                    <input type="number" id="school-start-year" name="school-start-year" class="form-control">
+                <div>
+                    <h3>Major</h3>
+                    <div class="input-group">
+                        <label for="major">Major</label>
+                        <input type="text" id="major" name="major" class="form-control">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="school-end-year">End Year</label>
-                    <input type="number" id="school-end-year" name="school-end-year" class="form-control">
+                <div>
+                    <h3>Relevant Coursework</h3>
+                    <div id="coursework-container" class="input-group">
+                        <input type="text" name="coursework[]" placeholder="Relevant Coursework" class="form-control">
+                    </div>
+                    <button type="button" onclick="addField('coursework-container')">Add Another Coursework</button>
                 </div>
-                <div class="input-group">
-                    <label for="school-percentage">Final Percentage</label>
-                    <input type="number" id="school-percentage" name="school-percentage" class="form-control">
-                </div>
-            </div>
-            <div>
-                <h3>High School</h3>
-                <div class="input-group">
-                    <label for="highschool-name">Name</label>
-                    <input type="text" id="highschool-name" name="highschool-name" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="highschool-start-year">Start Year</label>
-                    <input type="number" id="highschool-start-year" name="highschool-start-year" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="highschool-end-year">End Year</label>
-                    <input type="number" id="highschool-end-year" name="highschool-end-year" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="highschool-percentage">Final Percentage</label>
-                    <input type="number" id="highschool-percentage" name="highschool-percentage" class="form-control">
-                </div>
-            </div>
-            <div>
-                <h3>College</h3>
-                <div class="input-group">
-                    <label for="college-name">Name</label>
-                    <input type="text" id="college-name" name="college-name" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="college-start-year">Start Year</label>
-                    <input type="number" id="college-start-year" name="college-start-year" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="college-end-year">End Year</label>
-                    <input type="number" id="college-end-year" name="college-end-year" class="form-control">
-                </div>
-                <div class="input-group">
-                    <label for="college-percentage">Final Percentage</label>
-                    <input type="number" id="college-percentage" name="college-percentage" class="form-control">
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section>
-            <h2>Relevant Coursework and Experience</h2>
-            <div>
-                <label for="relevant-coursework">Relevant Coursework</label>
-                <div id="relevant-coursework">
-                    <input type="text" name="relevant-coursework[]" placeholder="Relevant coursework" class="form-control">
-                </div>
-                <button type="button" onclick="addField('relevant-coursework')" class="btn btn-primary">Add Field</button>
-                <br>
-                <br>
-            </div>
-            <div>
-                <label>Experience</label>
+            <section>
+                <h2>Experience</h2>
                 <div id="experience-container">
                     <div class="experience">
                         <input type="text" name="company[]" placeholder="Company name" class="form-control">
@@ -283,82 +266,65 @@
                         <textarea name="summary[]" placeholder="Summary" class="form-control"></textarea>
                     </div>
                 </div>
-                <button type="button" onclick="addExperience()" class="btn btn-primary">Add Experience</button>
-            </div>
-        </section>
+                <button type="button" onclick="addExperience()">Add Another Position</button>
+            </section>
 
-        <section>
-            <h2>Projects</h2>
-            <div id="projects-container">
-                <div class="project">
-                    <div class="input-group">
-                        <label for="project-name">Project Name</label>
-                        <input type="text" name="project-name[]" placeholder="Project name" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <label for="technologies-used">Technologies Used</label>
-                        <input type="text" name="technologies-used[]" placeholder="Technologies used" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <label for="project-date">Date</label>
-                        <input type="date" name="project-date[]" placeholder="Date" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <label for="project-summary">Summary</label>
-                        <textarea name="project-summary[]" placeholder="Summary" class="form-control"></textarea>
+            <section>
+                <h2>Projects</h2>
+                <div id="projects-container">
+                    <div class="project">
+                        <div class="input-group">
+                            <label for="project-name">Project Name</label>
+                            <input type="text" name="project-name[]" placeholder="Project name" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <label for="technologies-used">Technologies Used</label>
+                            <input type="text" name="technologies-used[]" placeholder="Technologies used" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <label for="project-date">Date</label>
+                            <input type="date" name="project-date[]" placeholder="Date" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <label for="project-summary">Summary</label>
+                            <textarea name="project-summary[]" placeholder="Summary" class="form-control"></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <button type="button" onclick="addProjectField()" class="btn btn-primary">Add Project</button>
-        </section>
+                <button type="button" onclick="addProjectField()">Add Another Project</button>
+            </section>
 
-        <section>
-            <h2>Technical Skills</h2>
-            <div class="input-group">
-                <label for="languages">Languages</label>
-                <input type="text" id="languages" name="languages" class="form-control">
-            </div>
-            <div class="input-group">
-                <label for="developer-tools">Developer Tools</label>
-                <input type="text" id="developer-tools" name="developer-tools" class="form-control">
-            </div>
-            <div class="input-group">
-                <label for="technologies-frameworks">Technologies/Frameworks</label>
-                <input type="text" id="technologies-frameworks" name="technologies-frameworks" class="form-control">
-            </div>
-        </section>
-
-        <section>
-            <h2>Extracurricular</h2>
-            <div id="extracurricular-container">
-                <div class="extracurricular">
-                    <div class="input-group">
-                        <label for="organization">Organization</label>
-                        <input type="text" name="organization[]" placeholder="Organization" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <label for="role">Role</label>
-                        <input type="text" name="role[]" placeholder="Role" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <label for="start-date">Start Date</label>
-                        <input type="date" name="start-date[]" placeholder="Start date" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <label for="end-date">End Date</label>
-                        <input type="date" name="end-date[]" placeholder="End date" class="form-control">
-                    </div>
-                    <div class="input-group">
-                        <label for="summary">Summary</label>
-                        <textarea name="summary[]" placeholder="Summary" class="form-control"></textarea>
+            <section>
+                <h2>Extracurricular Activities</h2>
+                <div id="extracurricular-container">
+                    <div class="extracurricular">
+                        <div class="input-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" name="organization[]" placeholder="Organization" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <label for="role">Role</label>
+                            <input type="text" name="role[]" placeholder="Role" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <label for="start-date">Start Date</label>
+                            <input type="date" name="start-date[]" placeholder="Start date" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <label for="end-date">End Date</label>
+                            <input type="date" name="end-date[]" placeholder="End date" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <label for="summary">Summary</label>
+                            <textarea name="summary[]" placeholder="Summary" class="form-control"></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <button type="button" onclick="addAnotherPosition()" class="btn btn-primary">Add Another Position</button>
-        </section>
+                <button type="button" onclick="addAnotherPosition()">Add Another Position</button>
+            </section>
 
-        <button type="submit" class="submit-button">Submit</button>
-    </form>
-
+            <button type="submit" class="submit-button">Generate Resume</button>
+        </form>
+    </main>
 </body>
 </html>
