@@ -91,7 +91,6 @@
             padding: 20px;
             border-radius: 10px;
         }
-        
 
         .line1 {
             font-size: 1.5rem;
@@ -138,14 +137,105 @@
 
         }
 
-
-
         .buttons button:active {
             background-color: rgb(60, 150, 55);
             transform: translateY(1px);
         }
 
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: hidden; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black with opacity */
+            padding-top: 60px; /* Position close button */
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            max-width: 95%; /* Limit width for smaller screens */
+            width: 800px; /* Fixed width for larger screens */
+            border-radius: 10px;
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Wrap items to next line if needed */
+            justify-content: space-around; /* Space items evenly */
+            position: relative;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .member-info {
+            margin-bottom: 20px;
+            width: calc(50% - 20px); /* Adjust width for two columns */
+            padding: 10px;
+            border: 5px solid #ccc; /* Border for distinction */
+            border-radius: 15px;
+        }
+
+        .member-info:nth-child(odd) {
+            margin-right: 20px; /* Add margin between items */
+        }
+
+        .member-info:last-child {
+            margin: 0; /* Remove margin for the last item */
+            width: 100%; /* Full width for the last item */
+        }
+
+        .member-info:nth-last-child(2) {
+            margin-right: 0; /* Remove margin for the second last item */
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            align-items: center;
+        }
+
+        .member-email,
+        .member-linkedin,
+        .member-github {
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .member-email{
+            text-align: center;
+        }
+
+        img {
+            height: 30px;
+            margin: 3px;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         @media (max-width: 768px) {
+            .modal-content {
+                width: 95%; /* Adjust width for smaller screens */
+                max-width: 100%; /* Full width for smaller screens */
+            }
+
+            .member-info {
+                width: 100%; /* Full width for smaller screens */
+                margin-right: 0; /* Remove margin for smaller screens */
+                color: black;
+            }
+
             .brand-name {
                 font-size: 1.5rem;
             }
@@ -189,48 +279,6 @@
                 padding: 10px 15px;
             }
         }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0%;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fff; /* White background for content */
-            color: #222; /* Dark text color */
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            width: 80%;
-            max-width: 500px;
-        }
-
-        .close {
-            color: #222; /* Dark close button color */
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #555; /* Darker on hover */
-            text-decoration: none;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -258,81 +306,95 @@
     </div>
     <div class="buttons">
         <form action="/create" method="GET">
-            <button>CREATE</button>
+            <button>Build Now</button>
         </form>
     </div>
 </section>
 
-<div id="contactModal" class="modal">
+<!-- Modal Section -->
+<div id="aboutUsModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Contact Us</h2>
-        <p>Email: contact@ResumeBuilder.com</p>
-        <p>Email: contact@ResumeBuilder2.com</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Phone: +123 456 7877</p>
-        <p>Address: Dhankawadi, Pune, India.</p>
+        <!-- Member 1 -->
+        <div class="member-info">
+            <div class="member-name">Ayush Khairnar</div>
+            <div class="member-email"><img src="./email.png" alt="">ayushkhairnar06@gmail.com</div>
+            <div class="icons">
+                <div class="member-linkedin"><a href="https://www.linkedin.com/in/ayush-khairnar-300517249/"><img src="./linkedin.png" alt=""></a></div>
+                <div class="member-github"><a href="https://github.com/TechNinjaAyush"><img src="./github.png" alt=""></a></div>
+            </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="member-info">
+            <div class="member-name">Ayush Wattamwar</div>
+            <div class="member-email"><img src="./email.png" alt="">ayushwattamwar27@gmail.com</div>
+            <div class="icons">
+                <div class="member-linkedin"><a href="https://www.linkedin.com/in/ayush-wattamwar-32534524b/"><img src="./linkedin.png" alt=""></a></div>
+                <div class="member-github"><a href="https://github.com/AshWatts"><img src="./github.png" alt=""></a></div>
+            </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="member-info">
+            <div class="member-name">Soham Phatak</div>
+            <div class="member-email"><img src="./email.png" alt="">sohamphatakssp@gmail.com</div>
+            <div class="icons">
+                <div class="member-linkedin"><a href="https://www.linkedin.com/in/soham-phatak/"><img src="./linkedin.png" alt=""></a></div>
+                <div class="member-github"><a href="https://github.com/LonerWarlock"><img src="./github.png" alt=""></a></div>
+            </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="member-info">
+            <div class="member-name">Sohan Choudhary</div>
+            <div class="member-email"><img src="./email.png" alt="">sohanabc4@gmail.com</div>
+            <div class="icons">
+                <div class="member-linkedin"><a href="https://www.linkedin.com/in/sohan-choudhary-1649501b3/"><img src="./linkedin.png" alt=""></a></div>
+                <div class="member-github"><a href="https://github.com/Alphadexter17"><img src="./github.png" alt=""></a></div>
+            </div>
+        </div>
+
+        <!-- Member 5 -->
+        <div class="member-info">
+            <div class="member-name">Tejas Tanavade</div>
+            <div class="member-email"><img src="./email.png" alt="">tejastanavade12@gmail.com</div>
+            <div class="icons">
+                <div class="member-linkedin"><a href="http://www.linkedin.com/in/tejas-tanavade-717818259"><img src="./linkedin.png" alt=""></a></div>
+                <div class="member-github"><a href="https://github.com/tantejas"><img src="./github.png" alt=""></a></div>
+            </div>
+        </div>
+
+        <div class="member-info" style="border: white"></div>
     </div>
 </div>
 
-<div id="aboutModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>About Us</h2>
-        <p> Ayush Khairnar - Back End Developer</p>
-        <p> Tejas Tanavade - Front End Developer</p>
-        <p> Sohan Choudhary - Back End Developer</p>
-        <p> Ayush Wattamwar - Front End Developer</p>
-        <p> Soham Phatak - Configuration Manager </p>
-    </div>
-</div>
-
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
-    var typed = new Typed("#element", {
+    // Modal script
+    var aboutUsModal = document.getElementById("aboutUsModal");
+    var aboutUsLink = document.getElementById("aboutUsLink");
+
+    aboutUsLink.onclick = function () {
+        aboutUsModal.style.display = "flex";
+    };
+
+    window.onclick = function (event) {
+        if (event.target == aboutUsModal) {
+            aboutUsModal.style.display = "none";
+        }
+    };
+</script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
         strings: [
-            "a Developer",
-            "an AI/ML Aspirant",
-            "a Data Scientist",
-            "a Project Manager",
-            "an Engineer",
+          "a Developer",
+          "an AI/ML Aspirant",
+          "a Data Scientist",
+          "a Project Manager",
+          "an Engineer's",
         ],
         typeSpeed: 100,
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var contactModal = document.getElementById("contactModal");
-        var aboutModal = document.getElementById("aboutModal");
-        var contactLink = document.getElementById("contactUsLink");
-        var aboutLink = document.getElementById("aboutUsLink");
-        var closeButtons = document.getElementsByClassName("close");
-
-        contactLink.addEventListener("click", function (event) {
-            event.preventDefault();
-            contactModal.style.display = "flex";
-        });
-
-        aboutLink.addEventListener("click", function (event) {
-            event.preventDefault();
-            aboutModal.style.display = "flex";
-        });
-
-        for (var i = 0; i < closeButtons.length; i++) {
-            closeButtons[i].addEventListener("click", function () {
-                contactModal.style.display = "none";
-                aboutModal.style.display = "none";
-            });
-        }
-
-        window.addEventListener("click", function (event) {
-            if (event.target == contactModal) {
-                contactModal.style.display = "none";
-            }
-            if (event.target == aboutModal) {
-                aboutModal.style.display = "none";
-            }
-        });
-    });
-</script>
+      });
+    </script>
 </body>
 </html>
