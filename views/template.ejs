@@ -7,7 +7,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       background-color: #f8f9fa;
       padding: 20px;
     }
@@ -35,6 +35,9 @@
     }
     .section-title {
       font-size: 1.5em;
+      font: 1000px;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      font-weight: bold;
       border-bottom: 2px solid #333;
       padding-bottom: 5px;
       margin-bottom: 10px;
@@ -46,22 +49,33 @@
     .section-content p {
       margin-bottom: 5px;
     }
+    .info{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      gap: 25px;
+      
+    }
+    h5{
+      font-weight:600;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header text-center">
+    <div class="header text-center " >
       <h1>John Doe</h1>
-      <div class="personal">
-        <div class="personal">john.doe@example.com</div>
-        <div class="personal">(123) 456-7890</div>
-        <div class="personal">linkedin.com/in/johndoe</div>
-        <div class="personal">github.com/johndoe</div>
+      <div class="info">
+        <img src="" alt="" >
+        <div class="personal"><img src="email.png" alt="" width="16px" height="16px" >john.doe@example.com</div>
+        <div class="personal"><img src="phone-svgrepo-com.png" alt="" width="19px" height="20px" >(123) 456-7890</div>
+        <div class="personal"><img src="linkedin.png" alt="" width="16px" height="16px" >linkedin.com/in/johndoe</div>
+        <div class="personal"><img src="github.png" alt="" width="16px" height="16px" >github.com/johndoe</div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title">Education</div>
+      <div class="section-title" >Education</div>
       <div class="section-content">
         <h5>College: ABC University (2015 - 2019)</h5>
         <p>Percentage: 85%</p>
